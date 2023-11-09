@@ -19,6 +19,12 @@ int main()
     vector<Vector2f> vertices;
     vector<Vector2f> points;
 
+    sf::Font font;
+    if(!font.loadFromFile("SourceSerifPro-Regular.otf"))
+    {
+        std::cout << "Error loading font" << std::endl;
+    }
+
 	while (window.isOpen())
 	{
         /*
