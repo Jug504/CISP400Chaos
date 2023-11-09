@@ -50,14 +50,18 @@ int main()
                     {
                         ///fourth click
                         ///push back to points vector
+                        points.push_back(Vector2f(event.mouseButton.x, event.mouseButton.y)); //Firstpoint
                     }
+                    //Ignore all other clicks
                 }
             }
         }
         if (Keyboard::isKeyPressed(Keyboard::Escape))
-		{
+		{   
+            //Terminate
 			window.close();
 		}
+
         /*
 		****************************************
 		Update
@@ -65,11 +69,17 @@ int main()
 		*/
 
         if(points.size() > 0)
-        {
+        {   
             ///generate more point(s)
-            ///select random vertex
+            ///selecft random vertex
             ///calculate midpoint between random vertex and the last point in the vector
             ///push back the newly generated coord.
+            int currVertex;
+            currVertex = rand() % 3;
+            Vector2f currPoint;
+            currPoint.x = vertices.at(currVertex.x / 2.0);
+            currPoint.y = vertices.at(currVertex.y / 2.0);
+            points.push_back(currPoint);
         }
 
         /*
