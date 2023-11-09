@@ -77,15 +77,17 @@ int main()
         if(points.size() > 0)
         {   
             ///generate more point(s)
-            ///selecft random vertex
+            ///select random vertex
             ///calculate midpoint between random vertex and the last point in the vector
             ///push back the newly generated coord.
-            int currVertex;
-            currVertex = rand() % 3;
             Vector2f currPoint;
-            currPoint.x = vertices.at(currVertex.x / 2.0);
-            currPoint.y = vertices.at(currVertex.y / 2.0);
-            points.push_back(currPoint);
+            for (int i = 1; i < 5000; i++) {
+                int currVertex;
+                currVertex = rand() % 3;
+                currPoint.x = ( points.at(i-1).x + vertices.at(currVertex).x ) / 2.0f;
+                currPoint.y = ( points.at(i-1).y + vertices.at(currVertex).y ) / 2.0f;
+                points.push_back(currPoint);
+            }
         }
 
         /*
