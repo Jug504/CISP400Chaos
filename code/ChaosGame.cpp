@@ -14,7 +14,7 @@ int main()
     // Create a video mode object
 	VideoMode vm(1920, 1080);
 	// Create and open a window for the game
-	RenderWindow window(vm, "Timber Game!!", Style::Default);
+	RenderWindow window(vm, "Chaos Game", Style::Default);
 
     vector<Vector2f> vertices;
     vector<Vector2f> points;
@@ -91,11 +91,11 @@ int main()
             ///calculate midpoint between random vertex and the last point in the vector
             ///push back the newly generated coord.
             Vector2f currPoint;
-            for (int i = 1; i < 5000; i++) {
+            for (int i = 0; i < 5000; i++) {
                 int currVertex;
                 currVertex = rand() % 3;
-                currPoint.x = ( points.at(i-1).x + vertices.at(currVertex).x ) / 2.0f;
-                currPoint.y = ( points.at(i-1).y + vertices.at(currVertex).y ) / 2.0f;
+                currPoint.x = ( points.at(i).x + vertices.at(currVertex).x ) / 2.0f;
+                currPoint.y = ( points.at(i).y + vertices.at(currVertex).y ) / 2.0f;
                 points.push_back(currPoint);
             }
         }
@@ -105,21 +105,29 @@ int main()
 		Draw
 		****************************************
 		*/
+
         window.clear();
-        for(int i = 0; i < vertices.size(); i++)
+        for(unsigned int i = 0; i < vertices.size(); i++)
         {
-            RectangleShape rect(Vector2f(10,10));
+            RectangleShape rect(Vector2f(3,3));
             rect.setPosition(Vector2f(vertices[i].x, vertices[i].y));
-            rect.setFillColor(Color::Blue);
-            window.draw(rect);
-        }
-        for(int j = 0; j < points.size(); j++)
-        {
-            RectangleShape rect(Vector2f(10,10));
-            rect.setPosition(Vector2f(points[j].x, points[j].y));
-            rect.setFillColor(Color::Red);
+            rect.setFillColor(Color::White);
             window.draw(rect);
         }
         window.display();
+        for(unsigned int j = 0; j < points.size(); j++)
+        {
+            RectangleShape rect(Vector2f(2,2));
+            rect.setPosition(Vector2f(points[j].x, points[j].y));
+            int color = rand() % 5;
+            if (color == 0) { rect.setFillColor(Color::Red); }
+            else if (color == 1) { rect.setFillColor(Color::Blue); }
+            else if (color == 2) { rect.setFillColor(Color::Green); }
+            else if (color == 3) { rect.setFillColor(Color::Yellow);}
+            else if (color == 4) { rect.setFillColor(Color::White); }
+            window.draw(rect);
+            window.display();
+        }
+        
     }
 }
