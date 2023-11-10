@@ -113,6 +113,13 @@ int main()
             rect.setFillColor(Color::Blue);
             window.draw(rect);
         }
+        for(int j = 0; j < points.size(); j++)
+        {
+            RectangleShape rect(Vector2f(10,10));
+            rect.setPosition(Vector2f(points[j].x, points[j].y));
+            rect.setFillColor(Color::Red);
+            window.draw(rect);
+        }
         window.display();
     }
 }
