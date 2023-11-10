@@ -19,11 +19,18 @@ int main()
     vector<Vector2f> vertices;
     vector<Vector2f> points;
 
-    sf::Font font;
+    /*sf::Font font;
     if(!font.loadFromFile("SourceSerifPro-Regular.otf"))
     {
         std::cout << "Error loading font" << std::endl;
     }
+
+    sf::Text text;
+    text.setFont(font);
+    text.setString("Click anywhere on the screen to create three vertices of any kind of triangle, then click on another point to begin the pattern");
+    text.setCharacterSize(25);
+    text.setFillColor(sf::Color::Blue);
+    window.draw(text);*/
 
 	while (window.isOpen())
 	{
@@ -58,7 +65,10 @@ int main()
                         ///push back to points vector
                         points.push_back(Vector2f(event.mouseButton.x, event.mouseButton.y)); //Firstpoint
                     }
-                    //Ignore all other clicks
+                    else //Ignore all other clicks
+                    {
+                        break;
+                    }
                 }
             }
         }
