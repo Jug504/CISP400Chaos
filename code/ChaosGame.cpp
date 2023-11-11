@@ -20,7 +20,7 @@ int main()
     vector<Vector2f> points;
 
     /*sf::Font font;
-    if(!font.loadFromFile("SourceSerifPro-Regular.otf"))
+    if(!font.loadFromFile("Microsoft Sans Serif.ttf"))
     {
         std::cout << "Error loading font" << std::endl;
     }
@@ -28,9 +28,10 @@ int main()
     sf::Text text;
     text.setFont(font);
     text.setString("Click anywhere on the screen to create three vertices of any kind of triangle, then click on another point to begin the pattern");
-    text.setCharacterSize(25);
-    text.setFillColor(sf::Color::Blue);
-    window.draw(text);*/
+    text.setCharacterSize(500);
+    text.setFillColor(sf::Color::White);
+    window.draw(text);
+    window.display();*/
 
 	while (window.isOpen())
 	{
@@ -39,6 +40,21 @@ int main()
 		Handle the players input
 		****************************************
 		*/
+
+        sf::Font font;
+        if(!font.loadFromFile("/home/ubuntu/Desktop/cisp400/CISP400_SFML/Chapter18/fonts/Roboto-Light.ttf"))
+        {
+            std::cout << "Error loading font" << std::endl;
+        }
+
+        sf::Text text;
+        text.setFont(font);
+        text.setString("Click anywhere on the screen to create three vertices of any kind of triangle, then click on another point to begin the pattern");
+        text.setCharacterSize(20);
+        text.setFillColor(sf::Color::White);
+        window.draw(text);
+        window.display();
+
         Event event;
 		while (window.pollEvent(event))
 		{
