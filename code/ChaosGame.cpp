@@ -148,7 +148,7 @@ int main()
         {
             RectangleShape rect1(Vector2f(2,2));
             rect1.setPosition(Vector2f(points[k].x, points[k].y));
-            rect1.move(Vector2f(0.f, 180.f));
+            rect1.move(Vector2f(0.f, 220.f));
             //rect1.rotate(180.f);
             rect1.setFillColor(Color::White);
             window.draw(rect1);
