@@ -19,20 +19,6 @@ int main()
     vector<Vector2f> vertices;
     vector<Vector2f> points;
 
-    /*sf::Font font;
-    if(!font.loadFromFile("Microsoft Sans Serif.ttf"))
-    {
-        std::cout << "Error loading font" << std::endl;
-    }
-
-    sf::Text text;
-    text.setFont(font);
-    text.setString("Click anywhere on the screen to create three vertices of any kind of triangle, then click on another point to begin the pattern");
-    text.setCharacterSize(500);
-    text.setFillColor(sf::Color::White);
-    window.draw(text);
-    window.display();*/
-
 	while (window.isOpen())
 	{
         /*
@@ -121,6 +107,10 @@ int main()
 		Draw
 		****************************************
 		*/
+        
+        //Setting origin to rotate points around to create the mirror image of the fractical
+        //RectangleShape origin(Vector2f(3,3));
+        //origin.setPosition(Vector2f(vertices[0].x, vertices[0].y));
 
         window.clear();
         for(unsigned int i = 0; i < vertices.size(); i++)
@@ -135,6 +125,14 @@ int main()
         {
             RectangleShape rect(Vector2f(2,2));
             rect.setPosition(Vector2f(points[j].x, points[j].y));
+            
+            //Creating rectangle that will be the mirrored position
+            //RectangleShape rect1(Vector2f(2,2));
+            //rect1.setPosition(Vector2f(points[j].x, points[j].y));
+            //rect1.move(Vector2f(points[j].x, points[j].y));
+            //rect1.rotate(180.f);
+            //rect1.setFillColor(Color::White);
+
             int color = rand() % 5;
             if (color == 0) { rect.setFillColor(Color::Red); }
             else if (color == 1) { rect.setFillColor(Color::Blue); }
@@ -143,7 +141,20 @@ int main()
             else if (color == 4) { rect.setFillColor(Color::White); }
             window.draw(rect);
             window.display();
+            //window.draw(rect1);
+            //window.display();
         }
+        for(unsigned int k = 0; k < points.size(); k++)
+        {
+            RectangleShape rect1(Vector2f(2,2));
+            rect1.setPosition(Vector2f(points[k].x, points[k].y));
+            rect1.move(Vector2f(0.f, 180.f));
+            //rect1.rotate(180.f);
+            rect1.setFillColor(Color::White);
+            window.draw(rect1);
+            window.display();
+        }
+
         
     }
 }
