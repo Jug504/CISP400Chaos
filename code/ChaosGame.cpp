@@ -131,6 +131,26 @@ int main()
             window.draw(rect);
             window.display();
         }
+        //mirror
+        for(unsigned int m = vertices.size(); m > 0; m--)
+        {
+            RectangleShape rect1(Vector2f(3,3));
+            rect1.setPosition(Vector2f(vertices[m].x, vertices[m].y));
+            rect1.move(Vector2f(0.f, 220.f));
+            rect1.setFillColor(Color::White);
+            window.draw(rect1);
+            //window.display();
+            /*for(unsigned int k = 0; k < points.size(); k++)
+            {
+                RectangleShape rect1(Vector2f(2,2));
+                rect1.setPosition(Vector2f(points[k].x, points[k].y));
+                rect1.move(Vector2f(0.f, 220.f));
+                rect1.setFillColor(Color::White);
+                window.draw(rect1);
+                window.display();
+            }*/
+        }
+        window.display();
         for(unsigned int k = 0; k < points.size(); k++)
         {
             RectangleShape rect1(Vector2f(2,2));
