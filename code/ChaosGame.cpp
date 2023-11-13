@@ -131,24 +131,114 @@ int main()
             window.draw(rect);
             window.display();
         }
-        //mirror
-        for(unsigned int m = vertices.size(); m > 0; m--)
+        
+        
+        /*Mirror Fractal*/
+
+        //Vector2f lowestVertice;
+        /*This loop will find the lowest point of the shape
+          Which will be used to flip the shape across off of*/
+        /*for(unsigned int k = 0; k < vertices.size(); k++)
         {
-            RectangleShape rect1(Vector2f(3,3));
-            rect1.setPosition(Vector2f(vertices[m].x, vertices[m].y));
-            rect1.move(Vector2f(0.f, 220.f));
-            rect1.setFillColor(Color::White);
-            window.draw(rect1);
-            //window.display();
-            /*for(unsigned int k = 0; k < points.size(); k++)
+            if(vertices[k].y > vertices[0].y)
+            {
+                lowestVertice = vertices.at(k);
+                //lowestVertice.setOrigin(Vector2f(vertices[k].x, vertices[k].y))
+            }
+            else
+            {
+                lowestVertice = vertices.at(0);
+                //lowestVertice.setOrigin(Vector2f(vertices[0].x, vertices[0].y));
+            }
+        }*/
+        //RectangleShape rect;
+        //rect.setOrigin(lowestVertice);
+
+        if(Keyboard::isKeyPressed(Keyboard::A))
+        {
+            for(unsigned int k = 0; k < points.size(); k++)
             {
                 RectangleShape rect1(Vector2f(2,2));
                 rect1.setPosition(Vector2f(points[k].x, points[k].y));
-                rect1.move(Vector2f(0.f, 220.f));
+                rect1.move(Vector2f(-10.f, 0.f));
                 rect1.setFillColor(Color::White);
                 window.draw(rect1);
                 window.display();
-            }*/
+            }
+        }
+        if(Keyboard::isKeyPressed(Keyboard::W))
+        {
+            for(unsigned int k = 0; k < points.size(); k++)
+            {
+                RectangleShape rect1(Vector2f(2,2));
+                rect1.setPosition(Vector2f(points[k].x, points[k].y));
+                rect1.move(Vector2f(0.f, -10.f));
+                rect1.setFillColor(Color::White);
+                window.draw(rect1);
+                window.display();
+            }
+        }
+        if(Keyboard::isKeyPressed(Keyboard::S))
+        {
+            for(unsigned int k = 0; k < points.size(); k++)
+            {
+                RectangleShape rect1(Vector2f(2,2));
+                rect1.setPosition(Vector2f(points[k].x, points[k].y));
+                rect1.move(Vector2f(0.f, 10.f));
+                rect1.setFillColor(Color::White);
+                window.draw(rect1);
+                window.display();
+            }     
+        }
+        if(Keyboard::isKeyPressed(Keyboard::D))
+        {
+            for(unsigned int k = 0; k < points.size(); k++)
+            {
+                RectangleShape rect1(Vector2f(2,2));
+                rect1.setPosition(Vector2f(points[k].x, points[k].y));
+                rect1.move(Vector2f(10.f, 0.f));
+                rect1.setFillColor(Color::White);
+                window.draw(rect1);
+                window.display();
+            }
+        }
+        if(Keyboard::isKeyPressed(Keyboard::R))
+        {
+            for(unsigned int k = 0; k < points.size(); k++)
+            {
+                RectangleShape rect1(Vector2f(2,2));
+                rect1.setPosition(Vector2f(points[k].x, points[k].y));
+                rect1.rotate(10.f);
+                rect1.setFillColor(Color::White);
+                window.draw(rect1);
+                window.display();
+            }
+        }
+
+
+        /*for(unsigned int m = vertices.size(); m > 0; m--)
+        {
+            RectangleShape rect1(Vector2f(3,3));
+            RectangleShape rect2(Vector2f(3,3));
+            if(vertices[m].y < vertices[0].y)
+            {
+                rect1.setPosition(Vector2f(vertices[m].x, vertices[m].y));
+                rect2.setPosition(Vector2f(vertices[0].x, vertices[0].y));
+                rect1.move(Vector2f(0.f, 220.f));
+                rect2.move(Vector2f(0.f, 200.f));
+            }
+            else
+            {
+                rect1.setPosition(Vector2f(vertices[0].x, vertices[0].y));
+                rect2.setPosition(Vector2f(vertices[m].x, vertices[m].y));
+                rect1.move(Vector2f(0.f, 220.f));
+                rect2.move(Vector2f(0.f, 200.f));
+            }
+            
+            rect1.setFillColor(Color::White);
+            rect2.setFillColor(Color::White);
+            window.draw(rect1);
+            window.draw(rect2);
         }
         window.display();
         for(unsigned int k = 0; k < points.size(); k++)
@@ -159,7 +249,7 @@ int main()
             rect1.setFillColor(Color::White);
             window.draw(rect1);
             window.display();
-        }
+        }*/
 
         
     }
