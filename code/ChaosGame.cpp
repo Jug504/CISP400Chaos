@@ -147,7 +147,7 @@ int main() {
 	while (window.isOpen()) {
     
         sf::Font font;
-        if(!font.loadFromFile("/home/ubuntu/Desktop/cisp400/CISP400_SFML/Chapter18/fonts/Roboto-Light.ttf")) {
+        if(!font.loadFromFile("Roboto-Light.ttf")) {
             cout << "Error loading font" << endl;
         }
 
@@ -214,8 +214,8 @@ int main() {
             for (int i = 0; i < 5000; i++) {
                 int currVertex;
                 currVertex = rand() % 8;
-                currPoint.x = ( points.at(i).x + vertices.at(currVertex).x ) / 2.0f;
-                currPoint.y = ( points.at(i).y + vertices.at(currVertex).y ) / 2.0f;
+                currPoint.x = points.at(i).x + (2.0/3.0f * (vertices.at(currVertex).x - points.at(i).x) );
+                currPoint.y = points.at(i).y + (2.0/3.0f * (vertices.at(currVertex).y - points.at(i).y) );
                 points.push_back(currPoint);
             }
         }
