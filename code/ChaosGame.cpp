@@ -19,17 +19,15 @@ int main() {
     vector<Vector2f> vertices;
     vector<Vector2f> points;
 
-	while (window.isOpen()) {
-    
-        sf::Font font;
-        if(!font.loadFromFile("Roboto-Light.ttf")) {
-            cout << "Error loading font" << endl;
-        }
+     sf::Font font;
+    if(!font.loadFromFile("Roboto-Light.ttf")) {
+        cout << "Error loading font" << endl;
+    }
 
-        sf::Text text("Click anywhere on the screen to create three vertices of any kind of triangle, then click on another point to begin the pattern",font,20);
-        text.setFillColor(sf::Color::White);
-        window.draw(text);
-        window.display();
+    sf::Text text("Click anywhere on the screen to create three vertices of any kind of triangle, then click on another point to begin the pattern",font,20);
+    text.setFillColor(sf::Color::White);
+
+	while (window.isOpen()) {
 
         sf::Event event;
 		while (window.pollEvent(event)) {
@@ -37,6 +35,7 @@ int main() {
 				// Quit the game when the window is closed
 				window.close();
             }
+
             if (event.type == Event::MouseButtonPressed) {
                 if (event.mouseButton.button == sf::Mouse::Left) {
                     cout << "the left button was pressed" << std::endl;
@@ -45,6 +44,7 @@ int main() {
 
                     if(vertices.size() < 3) {
                         vertices.push_back(Vector2f(event.mouseButton.x, event.mouseButton.y));
+
                     }
                     else if(points.size() == 0) {
                         ///fourth click
@@ -67,7 +67,7 @@ int main() {
             ///calculate midpoint between random vertex and the last point in the vector
             ///push back the newly generated coord.
             Vector2f currPoint;
-            for (int i = 0; i < 5000; i++) {
+            for (int i = 0; i < 1000; i++) {
                 int currVertex;
                 currVertex = rand() % 3;
                 currPoint.x = ( points.at(i).x + vertices.at(currVertex).x ) / 2.0f;
@@ -77,16 +77,17 @@ int main() {
         }
         
         window.clear();
+        window.draw(text);
+
         for(unsigned int i = 0; i < vertices.size(); i++)
         {
             RectangleShape rect(Vector2f(3,3));
             rect.setPosition(Vector2f(vertices[i].x, vertices[i].y));
             rect.setFillColor(Color::White);
             window.draw(rect);
-            window.display();
         }
 
-        float aCounter,wCounter,sCounter,dCounter = 0.0;
+        //float aCounter,wCounter,sCounter,dCounter = 0.0;
         for(unsigned int j = 10; j < points.size(); j++) {
             RectangleShape rect(Vector2f(2,2));
             rect.setPosition(Vector2f(points[j].x, points[j].y));
@@ -97,7 +98,7 @@ int main() {
             else if (color == 3) { rect.setFillColor(Color::Yellow);}
             else if (color == 4) { rect.setFillColor(Color::White); }
             
-            if(Keyboard::isKeyPressed(Keyboard::A)) { //Shift fractal to the left 
+            /*if(Keyboard::isKeyPressed(Keyboard::A)) { //Shift fractal to the left 
                 aCounter += 0.1f;
                 rect.setPosition(Vector2f(points[j].x - aCounter, points[j].y));
             }
@@ -113,23 +114,11 @@ int main() {
                 dCounter += 0.1f;
                 rect.setPosition(Vector2f(points[j].x + dCounter, points[j].y));
             }
-                window.draw(rect);
-                window.display();
-            }
-
-        if(Keyboard::isKeyPressed(Keyboard::R)) //Meant to rotate
-        {
-            for(unsigned int k = 0; k < points.size(); k++)
-            {
-                RectangleShape rect1(Vector2f(2,2));
-                rect1.setPosition(Vector2f(points[k].x, points[k].y));
-                rect1.rotate(10.f);
-                rect1.setFillColor(Color::White);
-                window.draw(rect1);
-                window.display();
-            }
+            */
+            window.draw(rect);
         }
-        
+
+        window.display();
     }
 }
 
