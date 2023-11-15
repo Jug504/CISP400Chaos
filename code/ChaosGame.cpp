@@ -9,7 +9,7 @@
 using namespace sf;
 using namespace std;
 
-/*
+
 int main() {
     // Create a video mode object
 	VideoMode vm(1920, 1080);
@@ -22,7 +22,7 @@ int main() {
 	while (window.isOpen()) {
     
         sf::Font font;
-        if(!font.loadFromFile("/home/ubuntu/Desktop/cisp400/CISP400_SFML/Chapter18/fonts/Roboto-Light.ttf")) {
+        if(!font.loadFromFile("Roboto-Light.ttf")) {
             cout << "Error loading font" << endl;
         }
 
@@ -132,7 +132,8 @@ int main() {
         
     }
 }
-*/
+
+/*
 
 int main() {
     // Create a video mode object
@@ -275,3 +276,4 @@ int main() {
         
     }
 }
+*/
